@@ -63,7 +63,7 @@ const nextConfig = {
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
               "font-src 'self' https://fonts.gstatic.com",
               "img-src 'self' data: blob: https://*.public.blob.vercel-storage.com https://hotel-jezero.vercel.app https://www.hotel-jezero.com https://*.tile.openstreetmap.org https://unpkg.com",
-              "frame-src 'self' https://*.ipcamlive.com https://www.youtube.com https://youtube.com",
+              "frame-src 'self' https://*.ipcamlive.com https://www.youtube.com https://youtube.com https://www.google.com https://maps.google.com",
               "connect-src 'self' https://*.upstash.io https://*.vercel-storage.com https://*.supabase.co https://api.open-meteo.com",
               "object-src 'none'",
               "base-uri 'self'",

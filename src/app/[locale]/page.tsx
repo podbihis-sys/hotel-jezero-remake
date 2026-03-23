@@ -5,10 +5,7 @@ import { motion } from "framer-motion";
 import { MapPin, Phone, Mail, Clock, CheckCircle, AlertCircle } from "lucide-react";
 import { useTranslations, useLocale } from "next-intl";
 import { useState, useEffect, useRef, FormEvent } from "react";
-import dynamic from "next/dynamic";
 import BookingForm from "@/components/forms/BookingForm";
-
-const HotelMap = dynamic(() => import("@/components/map/HotelMap"), { ssr: false });
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
@@ -315,7 +312,18 @@ export default function HomePage() {
                   <div><h3 className="font-semibold text-[#2C3E50] text-sm uppercase tracking-wider mb-1">{tc("email_reservations")}</h3><p className="text-sm"><a href="mailto:recepcija@hotel-jezero.com" className="text-[#C5A55A] hover:underline">recepcija@hotel-jezero.com</a></p></div>
                 </div>
               </div>
-              <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-100 h-[280px]"><HotelMap /></div>
+              <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-100 h-[280px]">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2878!2d17.21652!3d43.94735!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDPCsDU2JzUwLjUiTiAxN8KwMTInNTkuNSJF!5e0!3m2!1shr!2sba"
+                  width="100%"
+                  height="280"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Hotel Jezero - Čajuša, Kupres"
+                />
+              </div>
             </motion.div>
 
             {/* Contact Form */}

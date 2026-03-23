@@ -1,0 +1,25 @@
+{
+  "name": "Hotel Jezero",
+  "short_name": "Jezero",
+  "description": "Hotel Jezero Kupres",
+  "start_url": "/hr/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#2C3E50",
+  "theme_color": "#2C3E50",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "/images/hotel-jezero14.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/hotel-jezero14.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any"
+    }
+  ]
+}

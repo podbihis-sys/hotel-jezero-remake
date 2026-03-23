@@ -55,11 +55,11 @@ function getNavItems(t: (key: string) => string, locale: string, dynamicItems: D
 
   const nav: NavItem[] = [
     { label: t("home"), href: p("/") },
-    { label: t("rooms"), href: p("/sobe") },
-    { label: t("gallery"), href: p("/galerija") },
-    { label: t("pricing"), href: p("/cjenik") },
+    { label: t("rooms"), href: `${p("/")}#sobe` },
+    { label: t("gallery"), href: `${p("/")}#galerija` },
+    { label: t("pricing"), href: `${p("/")}#cjenik` },
     ...dynamicTop,
-    { label: t("contact"), href: p("/kontakt") },
+    { label: t("contact"), href: `${p("/")}#kontakt` },
   ];
 
   return nav;
@@ -155,6 +155,7 @@ export function Navbar() {
   const navItems = getNavItems(t, locale, dynamicItems);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [scrolled, setScrolled] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
@@ -162,6 +163,12 @@ export function Navbar() {
       .then((r) => r.ok ? r.json() : [])
       .then(setDynamicItems)
       .catch(() => {});
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
@@ -190,18 +197,14 @@ export function Navbar() {
 
   return (
     <>
-      <nav className="bg-[#2C3E50] relative z-50">
+      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-[#2C3E50] shadow-lg" : "bg-[#2C3E50]/80 backdrop-blur-md"}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-[70px]">
             {/* Logo */}
             <Link href="/" className="flex items-center">
-              <Image
-                src="/images/logo.png"
-                alt="Adria Ski"
-                width={150}
-                height={40}
-                className="h-10 w-auto"
-              />
+              <span className="text-white font-heading text-xl font-bold tracking-wide">
+                Hotel <span className="text-[#C5A55A]">Jezero</span>
+              </span>
             </Link>
 
             {/* Desktop Navigation */}

@@ -314,7 +314,7 @@ export default function HomePage() {
               </div>
               <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-100 h-[280px]">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2878!2d17.21652!3d43.94735!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDPCsDU2JzUwLjUiTiAxN8KwMTInNTkuNSJF!5e0!3m2!1shr!2sba"
+                  src="https://www.google.com/maps?q=43.94735,17.21652&z=15&output=embed"
                   width="100%"
                   height="280"
                   style={{ border: 0 }}
